@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 
+// Importing Components
+import TopButtons from './components/TopButtons/TopButtons'
+
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <div className="container">
+        <TopButtons />
+      </div>
     </>
   )
 }
