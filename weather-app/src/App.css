@@ -7,8 +7,12 @@
         @apply 
             mx-auto max-w-screen-md
             w-screen h-screen
-            py-5 px-32 
+            py-5 px-16 
             bg-gradient-to-br from-cyan-700 to-blue-700
         ;
+    }
+
+    main {
+        @apply px-32;
     }
 }
