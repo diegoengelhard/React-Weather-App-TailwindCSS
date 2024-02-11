@@ -20,7 +20,7 @@ const Inputs = () => {
                     />
                     <UilLocationPoint
                         size={25}
-                        className="text-white cursor-pointer transition ease-out hover:scale-12"
+                        className="text-white cursor-pointer transition ease-out hover:scale-125"
                     />
                 </div>
 
