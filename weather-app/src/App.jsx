@@ -5,6 +5,7 @@ import './App.css'
 import TopButtons from './components/TopButtons/TopButtons'
 import Inputs from './components/Inputs/Inputs'
 import TimeAndLocation from './components/TimeAndLocation/TimeAndLocation'
+import TemperatureAndDetails from './components/TemperatureAndDetails/TemperatureAndDetails'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <main>
           <Inputs />
           <TimeAndLocation />
+          <TemperatureAndDetails />
         </main>
       </div>
     </>
