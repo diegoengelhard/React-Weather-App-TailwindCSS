@@ -74,8 +74,8 @@ function App() {
             temp_min={weather?.temp_min}
             temp_max={weather?.temp_max}            
           />
-          <Forecast title='Hourly Forecast' />
-          <Forecast title='Daily Forecast' />
+          <Forecast title='Hourly Forecast' items={weather?.hourly} />
+          <Forecast title='Daily Forecast' items={weather?.daily} />
         </main>
       </div>
     </>
