@@ -42,10 +42,12 @@ function App() {
         setLoading(false);
       }
     };
+
     fetchWeatherData();
   }, [query, units]);
 
-  // Render
+  console.log(weather);
+
   return (
     loading ? <LoadingSpinner /> :
     <>
@@ -59,7 +61,19 @@ function App() {
             city={weather?.name}
             country={weather?.country}
            />
-          <TemperatureAndDetails />
+          <TemperatureAndDetails 
+            details={weather?.details}
+            icon={weather?.icon}
+            temp={weather?.temp}
+            feels_like={weather?.feels_like}
+            humidity={weather?.humidity}
+            speedWind={weather?.speed}
+            sunrise={weather?.sunrise}
+            sunset={weather?.sunset}
+            timezone={weather?.timezone}
+            temp_min={weather?.temp_min}
+            temp_max={weather?.temp_max}            
+          />
           <Forecast title='Hourly Forecast' />
           <Forecast title='Daily Forecast' />
         </main>

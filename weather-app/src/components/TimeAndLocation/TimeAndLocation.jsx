@@ -2,10 +2,6 @@ import React from 'react'
 import { formatToLocalTime } from '../../services/weather.service';
 
 const TimeAndLocation = ({ date, timezone, city, country }) => {
-    console.log(date, timezone);
-    // const timezone = weather.timezone;
-    // const city = weather.name;
-    // const country = weather.country;
 
     return (
         <>
@@ -17,7 +13,9 @@ const TimeAndLocation = ({ date, timezone, city, country }) => {
                 </div>
 
                 <div className="flex items-center justify-center my-3">
-                    <p className="text-white text-3xl font-medium"></p>
+                    <p className="text-white text-3xl font-medium">
+                        {city}, {country}
+                    </p>
                 </div>
             </div>
         </>
