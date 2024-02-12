@@ -25,24 +25,13 @@ function App() {
     const fetchWeatherData = async () => {
       try {
         setLoading(true);
-        let data;
-  
-        const cachedData = localStorage.getItem('weatherData');
-        if (cachedData) {
-          data = JSON.parse(cachedData);
-        } else {
-          data = await getFormattedWeatherData({ ...query, units });
-          localStorage.setItem('weatherData', JSON.stringify(data));
-        }
-  
+        const data = await getFormattedWeatherData({ ...query, units });
         setWeather(data);
+        setLoading(false);
       } catch (error) {
         console.log('Error fetching weather data:', error);
-      } finally {
-        setLoading(false);
       }
     };
-
     fetchWeatherData();
   }, [query, units]);
 
@@ -52,7 +41,7 @@ function App() {
     loading ? <LoadingSpinner /> :
     <>
       <div className="container">
-        <TopButtons />
+        <TopButtons setQuery={setQuery} />
         <main>
           <Inputs />
           <TimeAndLocation 

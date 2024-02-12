@@ -3,7 +3,11 @@ import { FadeLoader } from 'react-spinners'
 
 const LoadingSpinner = () => {
     return (
-        <FadeLoader color="#ffffff" />
+        <>
+            <div className='jusify-center items-center'>
+                <FadeLoader color="#ffffff" />
+            </div>
+        </>
     )
 }
 
