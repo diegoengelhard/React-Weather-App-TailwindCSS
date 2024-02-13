@@ -15,7 +15,7 @@ import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner'
 
 function App() {
   // Set States
-  const [query, setQuery] = useState({ q: "berlin" });
+  const [query, setQuery] = useState({ q: "New York" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ function App() {
       <div className="container">
         <TopButtons setQuery={setQuery} />
         <main>
-          <Inputs />
+          <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
           <TimeAndLocation 
             date={weather?.dt} 
             timezone={weather?.timezone}
@@ -61,10 +61,11 @@ function App() {
             sunset={weather?.sunset}
             timezone={weather?.timezone}
             temp_min={weather?.temp_min}
-            temp_max={weather?.temp_max}            
+            temp_max={weather?.temp_max}  
+            units={units}          
           />
-          <Forecast title='Hourly Forecast' items={weather?.hourly} />
-          <Forecast title='Daily Forecast' items={weather?.daily} />
+          <Forecast title='Hourly Forecast' items={weather?.hourly} units={units} />
+          <Forecast title='Daily Forecast' items={weather?.daily} units={units} />
         </main>
       </div>
     </>

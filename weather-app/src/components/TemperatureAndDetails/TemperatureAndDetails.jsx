@@ -1,7 +1,10 @@
 import React from 'react'
 
 // Import service
-import {formatToLocalTime, iconUrlFromCode} from '../../services/weather.service'
+import { formatToLocalTime, iconUrlFromCode } from '../../services/weather.service'
+
+// Import set unit
+import { getTemperatureUnit } from '../../utils/setUnit'
 
 // Importing Icons
 import {
@@ -24,7 +27,9 @@ const TemperatureAndDetails = ({
     timezone,
     temp_min,
     temp_max,
+    units
 }) => {
+
     return (
         <>
             {/* Current Weather */}
@@ -38,7 +43,7 @@ const TemperatureAndDetails = ({
                 <img src={iconUrlFromCode(icon)} alt="" className="w-20" />
                 {/* Temp */}
                 <p className="text-5xl">
-                    {`${temp.toFixed()}°`}
+                    {`${temp.toFixed()}°`} {getTemperatureUnit(units)}
                 </p>
 
                 {/* Temp details */}
@@ -46,7 +51,9 @@ const TemperatureAndDetails = ({
                     <div className="flex font-light text-sm items-center justify-center">
                         <UilTemperature size={18} className="mr-1" />
                         Real feel:
-                        <span className="font-medium ml-1">{`${feels_like.toFixed()}°`}</span>
+                        <span className="font-medium ml-1">
+                            {`${feels_like.toFixed()}°`} {getTemperatureUnit(units)}
+                        </span>
                     </div>
                     <div className="flex font-light text-sm items-center justify-center">
                         <UilTear size={18} className="mr-1" />
@@ -60,7 +67,7 @@ const TemperatureAndDetails = ({
                     </div>
                 </div>
             </div>
-            
+
             {/* Day Details */}
             <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
                 {/* Sunrise */}
@@ -86,7 +93,7 @@ const TemperatureAndDetails = ({
                 <p className="font-light">
                     High:{" "}
                     <span className="font-medium ml-1">
-                        {`${temp_max.toFixed()}°`}
+                        {`${temp_max.toFixed()}°`} {getTemperatureUnit(units)}
                     </span>
                 </p>
                 <p className="font-light">|</p>
@@ -95,7 +102,7 @@ const TemperatureAndDetails = ({
                 <p className="font-light">
                     Low:{" "}
                     <span className="font-medium ml-1">
-                        {`${temp_min.toFixed()}°`}
+                        {`${temp_min.toFixed()}°`} {getTemperatureUnit(units)}
                     </span>
                 </p>
             </div>

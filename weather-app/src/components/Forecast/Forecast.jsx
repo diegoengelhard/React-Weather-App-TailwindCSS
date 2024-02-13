@@ -1,8 +1,11 @@
 import React from 'react'
 
+// Import set unit
+import { getTemperatureUnit } from '../../utils/setUnit'
+
 import { iconUrlFromCode } from '../../services/weather.service'
 
-const Forecast = ({ title, items }) => {
+const Forecast = ({ title, items, units }) => {
     return (
         <>
             {/* Title */}
@@ -25,7 +28,9 @@ const Forecast = ({ title, items }) => {
                             className="w-12 my-1"
                             alt=""
                         />
-                        <p className="font-medium">{`${item.temp.toFixed()}°`}</p>
+                        <p className="font-medium">
+                            {`${item.temp.toFixed()}°`} {getTemperatureUnit(units)}
+                        </p>
                     </div>
                 ))}
             </div>
