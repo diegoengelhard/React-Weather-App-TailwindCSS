@@ -38,37 +38,39 @@ function App() {
   console.log(weather);
 
   return (
-    loading ? <LoadingSpinner /> :
-    <>
-      <div className="container">
-        <TopButtons setQuery={setQuery} />
-        <main>
-          <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
-          <TimeAndLocation 
-            date={weather?.dt} 
-            timezone={weather?.timezone}
-            city={weather?.name}
-            country={weather?.country}
-           />
-          <TemperatureAndDetails 
-            details={weather?.details}
-            icon={weather?.icon}
-            temp={weather?.temp}
-            feels_like={weather?.feels_like}
-            humidity={weather?.humidity}
-            speedWind={weather?.speed}
-            sunrise={weather?.sunrise}
-            sunset={weather?.sunset}
-            timezone={weather?.timezone}
-            temp_min={weather?.temp_min}
-            temp_max={weather?.temp_max}  
-            units={units}          
-          />
-          <Forecast title='Hourly Forecast' items={weather?.hourly} units={units} />
-          <Forecast title='Daily Forecast' items={weather?.daily} units={units} />
-        </main>
-      </div>
-    </>
+    loading ? <div className="flex items-center justify-center min-h-screen">
+      <LoadingSpinner />
+    </div> :
+      <>
+        <div className="container">
+          <TopButtons setQuery={setQuery} />
+          <main>
+            <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
+            <TimeAndLocation
+              date={weather?.dt}
+              timezone={weather?.timezone}
+              city={weather?.name}
+              country={weather?.country}
+            />
+            <TemperatureAndDetails
+              details={weather?.details}
+              icon={weather?.icon}
+              temp={weather?.temp}
+              feels_like={weather?.feels_like}
+              humidity={weather?.humidity}
+              speedWind={weather?.speed}
+              sunrise={weather?.sunrise}
+              sunset={weather?.sunset}
+              timezone={weather?.timezone}
+              temp_min={weather?.temp_min}
+              temp_max={weather?.temp_max}
+              units={units}
+            />
+            <Forecast title='Hourly Forecast' items={weather?.hourly} units={units} />
+            <Forecast title='Daily Forecast' items={weather?.daily} units={units} />
+          </main>
+        </div>
+      </>
   );
 }
 
